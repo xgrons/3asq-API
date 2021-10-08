@@ -4,7 +4,7 @@ import re
 from bs4 import BeautifulSoup
 from htmlparsing import Element, HTMLParsing, Text, Attr, Parse, HTML, Markdown
 
-def get_anime(ids):
+def get_manga(ids):
     ids = ids.replace(' ','+')
     url = "https://3asq.org/wp-admin/admin-ajax.php"
     data = f"action=wp-manga-search-manga&title={ids}"
@@ -18,13 +18,10 @@ def get_anime(ids):
     return r.json()['data']
 
 
-#def get_episode(ids):
-#    #ids = ids.replace(' ','+')
-#    url = f'https://ww.anime4up.com/anime/{ids}'
-#    r = requests.get(url)
-#    article_list = HTMLParsing(r.text).list('.hover.ehover6', {'title': Attr('img.img-responsive', 'alt'), # css selector
-#                                                    'link': Attr('a.overlay', 'href')})
-#    return article_list
+def get_chapter(url):
+    r = requests.post(url+'ajax/chapters/')
+    article_list = HTMLParsing(r.text).list('.wp-manga-chapter    ', {'link': Attr('a', 'href')})
+    return article_list
 #
 #
 #def get_link(url):
@@ -41,4 +38,4 @@ def get_anime(ids):
 #    dictionary = dict(zip(Quality, all_link))
 #    return dictionary
 
-#print(get_anime('boku no'))
+print(get_chapter('https://3asq.org/manga/boku-no-hero-academia/'))

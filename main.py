@@ -13,13 +13,13 @@ def read_root():
 
 @app.get("/api/search")
 def read_item(id: str):
-    resutls = get_anime(id)
+    resutls = get_manga(id)
     return {"results":resutls}
 
-#@app.get("/api/fetch")
-#def read_item(id: str):
-#    resutls = get_episode(id)
-#    return {"results":resutls}
+@app.get("/api/fetch")
+def read_item(link: str):
+    resutls = get_chapter(link)
+    return {"results":resutls}
 #
 #@app.get("/api/dl")
 #def read_item(link: str):
