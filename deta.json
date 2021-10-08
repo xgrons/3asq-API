@@ -1,0 +1,5 @@
+{
+    "name": "Anime4up-API",
+    "description": "Unofficial Anime4up API", 
+    "runtime": "python3.9",
+}
