@@ -10,9 +10,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 @app.get("/")
 def read_root():
-    r = requests.get('http://ip-api.com/json')
-    data = r.json()
-    return data
+    return {"Hello": "World"}
 
 @app.get("/api/search")
 def read_item(id: str):
