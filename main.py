@@ -20,8 +20,4 @@ def read_item(id: str):
 def read_item(link: str):
     resutls = get_chapter(link)
     return {"results":resutls}
-#
-#@app.get("/api/dl")
-#def read_item(link: str):
-#    resutls = get_link(link)
-#    return resutls
+
