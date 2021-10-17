@@ -22,20 +22,3 @@ def get_chapter(url):
     r = requests.post(url+'ajax/chapters/')
     article_list = HTMLParsing(r.text).list('.wp-manga-chapter    ', {'link': Attr('a', 'href')})
     return article_list
-#
-#
-#def get_link(url):
-#    r = requests.get(url)
-#    e = Element(text=r.text)
-#    lnko = e.links
-#    prog = re.compile('https://uptobox.com/([a-zA-Z0-9.-]*)')
-#    data = prog.findall(str(lnko))
-#    all_link = []
-#    Quality = ['FHD','HD','SD']
-#    for i in data:
-#        dl = f'https://uptobox.com/{i}'
-#        all_link.append(dl)
-#    dictionary = dict(zip(Quality, all_link))
-#    return dictionary
-
-print(get_chapter('https://3asq.org/manga/boku-no-hero-academia/'))
